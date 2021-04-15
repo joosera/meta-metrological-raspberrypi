@@ -1,6 +1,8 @@
-include include/compositor.inc
 
-PACKAGECONFIG_append = " displayinfo playerinfo"
+WPE_COMPOSITOR = "${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'compositor_wayland', 'compositor_rpi', d)}"
+
+PACKAGECONFIG_append = " ${@bb.utils.contains('DISTRO_FEATURES', 'compositor', '${WPE_COMPOSITOR}', '', d)} \
+                        displayinfo playerinfo"
 
 # snapshot implemented with userland support, not applicable on vc4graphics
 PACKAGECONFIG_append = " ${@bb.utils.contains('MACHINE_FEATURES', 'vc4graphics', '', 'snapshot', d)}"
