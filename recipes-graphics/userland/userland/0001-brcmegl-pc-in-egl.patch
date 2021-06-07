@@ -1,0 +1,13 @@
+diff --git a/pkgconfig/brcmegl.pc.in b/pkgconfig/brcmegl.pc.in
+index 5dd3d5b..f98bcd7 100644
+--- a/pkgconfig/brcmegl.pc.in
++++ b/pkgconfig/brcmegl.pc.in
+@@ -7,7 +7,7 @@ Name: brcmEGL
+ Description: Fake brcmEGL package for RPi
+ Version: 10
+ Requires: bcm_host
+-Libs: -L${libdir} -lbrcmEGL -lbrcmGLESv2 -lbcm_host -lvchostif
++Libs: -L${libdir} -lEGL -lGLESv2 -lbcm_host -lvchostif
+ Cflags: -I${includedir} -I${includedir}/interface/vmcs_host/linux \
+         -I${includedir}/interface/vcos/pthreads
+ 
