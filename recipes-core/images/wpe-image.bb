@@ -14,7 +14,7 @@ IMAGE_FEATURES += " \
     package-management \
 "
 
-IMAGE_INSTALL += " \
+IMAGE_INSTALL_append = " \
 	kernel-modules \
 	xkeyboard-config \
 "

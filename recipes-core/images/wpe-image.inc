@@ -11,3 +11,6 @@ IMAGE_INSTALL_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'wpeframework', 
 
 # make sure the packagegroup-wpeframework-rdkservices is not available
 IMAGE_INSTALL_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'plugins-rdk', 'packagegroup-wpeframework-rdkservices', '', d)}"
+
+IMAGE_FSTYPES = "tar.xz ext3 rpi-sdimg"
+

@@ -4,7 +4,8 @@
 WESTEROS_BACKEND = "${@bb.utils.contains("MACHINE_FEATURES", "vc4graphics", "westeros-soc-drm", "westeros-soc-rpi", d)}"
 PACKAGECONFIG = "incapp inctest incplayer increndergl incsbprotocol xdgv4"
 CXXFLAGS_append = "${@bb.utils.contains('MACHINE_FEATURES', 'vc4graphics', ' ', ' -DWESTEROS_PLATFORM_RPI -DWESTEROS_INVERTED_Y -DBUILD_WAYLAND -I${STAGING_INCDIR}/interface/vmcs_host/linux', d)}"
-CXXFLAGS_append_dunfell = " ${@bb.utils.contains('MACHINE_FEATURES', 'vc4graphics', '-DUSE_MESA', '', d)}"
+MESA_FLAGS = "${@bb.utils.contains('MACHINE_FEATURES', 'vc4graphics', '-DUSE_MESA', '', d)}"
+CXXFLAGS_append = " ${@oe.utils.ifelse(d.getVar('DISTRO_CODENAME', True) == 'dunfell', '${MESA_FLAGS}', '')}"
 
 do_configure_prepend() {
     sed -i -e 's/-lwesteros_simplebuffer_client/-lwesteros_compositor -lwesteros_simplebuffer_client/g' ${S}/rpi/westeros-sink/Makefile.am

@@ -6,7 +6,7 @@ S = "${WORKDIR}/git"
 LICENSE_LOCATION = "${S}/LICENSE"
 AUTOTOOLS_SCRIPT_PATH = "${S}/rpi"
 
-DEPENDS += "wayland virtual/egl glib-2.0"
+DEPENDS_append = " wayland virtual/egl glib-2.0"
 PROVIDES = "westeros-soc"
 RPROVIDES_${PN} = "westeros-soc"
 
