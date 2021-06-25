@@ -6,7 +6,7 @@ LICENSE = "MIT"
 
 require recipes-core/images/core-image-base.bb
 
-require wpe-image.inc
+require ${@bb.utils.contains('DISTRO_FEATURES', 'container', 'wpe-image-container.inc', 'wpe-image.inc', d)}
 
 IMAGE_FEATURES += " \
     hwcodecs \
