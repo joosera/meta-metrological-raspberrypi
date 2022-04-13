@@ -29,7 +29,6 @@ create_bblayers_conf() {
         "meta-openembedded/meta-networking"
         "meta-openembedded/meta-python"
         "meta-wpe"
-        "meta-wpe-restricted"
         "meta-raspberrypi"
         "meta-metrological-raspberrypi"
     )
